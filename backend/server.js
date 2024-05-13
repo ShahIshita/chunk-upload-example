@@ -23,6 +23,7 @@ const tusServer = new Server({
   path: "/files",
   datastore: new FileStore({ directory: "./files",  }),
   namingFunction: (_, metadata) => {
+    // May require proper extension identification
     const extensionIndex = metadata.filename.lastIndexOf('.');
     const updatedFileName = addStringToStringAtIndex(metadata.filename, extensionIndex, '-' + id());
 
